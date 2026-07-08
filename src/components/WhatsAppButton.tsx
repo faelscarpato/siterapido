@@ -23,12 +23,12 @@ export function WhatsAppButton() {
 
   return (
     <div 
-      className={`fixed bottom-8 right-8 z-[100] transition-transform duration-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}`} 
+      className={`fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] transition-transform duration-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}`} 
       id="whatsapp-btn"
     >
       <div className="flex items-center gap-4">
         <div 
-          className={`bg-surface px-4 py-2 border border-outline md:block transition-all duration-500 ${showMessage ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 hidden'}`} 
+          className={`bg-surface px-4 py-2 border border-outline hidden md:block transition-all duration-500 ${showMessage ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} 
           id="whatsapp-msg"
         >
           <p className="font-label-caps text-label-caps text-on-surface uppercase">OLÁ! COMO POSSO AJUDAR?</p>

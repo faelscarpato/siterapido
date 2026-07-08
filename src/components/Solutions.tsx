@@ -3,28 +3,28 @@ import { ArrowRight } from 'lucide-react';
 
 export function Solutions() {
   return (
-    <section className="py-24 bg-surface" id="solucoes">
+    <section className="py-24 bg-surface" id="modelos">
       <div className="mx-auto px-6 sm:px-10">
         <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-16">
           <div className="max-w-2xl">
-            <h2 className="font-headline-xl text-headline-xl mb-6 text-on-surface">
-              ESPECIALIZADO<br />
-              <span className="text-primary">NO SEU SEGMENTO</span>
+            <h2 className="font-display-lg text-display-lg-mobile text-4xl md:text-headline-xl mb-6 text-on-surface uppercase leading-tight">
+              MODELOS VALIDADOS<br />
+              <span className="text-primary">PARA O SEU SEGMENTO</span>
             </h2>
             <div className="w-24 h-1 bg-primary mb-6"></div>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[480px]">
-              Templates que não parecem templates. Design sob medida para converter visitantes em clientes reais.
+              Temos o design perfeito para o seu negócio. Escolha o seu e deixe a nossa equipe adaptar com suas informações.
             </p>
           </div>
-          <a className="font-label-caps text-label-caps flex items-center gap-2 hover:text-primary transition-colors mt-6 md:mt-0 pb-2 border-b border-on-surface hover:border-primary" href="#">
+          <a className="font-label-caps text-label-caps flex items-center gap-2 hover:text-primary transition-colors mt-6 md:mt-0 pb-2 border-b border-on-surface hover:border-primary min-h-[48px]" href="#">
             EXPLORAR TODOS OS NICHOS
             <ArrowRight size={16} />
           </a>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Barbearia */}
-          <div className="group relative overflow-hidden bg-surface-bright aspect-[4/5] flex flex-col justify-end p-8 border border-outline">
+          <div className="group relative overflow-hidden bg-surface-bright aspect-[4/5] flex flex-col justify-end p-6 sm:p-8 border border-outline">
             <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500">
               <img 
                 className="w-full h-full object-cover grayscale mix-blend-overlay" 
@@ -34,16 +34,16 @@ export function Solutions() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
             </div>
             <div className="relative z-10 text-on-surface">
-              <span className="font-label-caps text-label-caps mb-4 block text-primary">BARBEARIA ELITE</span>
-              <h3 className="font-headline-lg text-headline-lg mb-4">AGENDAMENTOS INSTANTÂNEOS</h3>
+              <span className="font-label-caps text-label-caps mb-4 block text-primary">BARBEARIA & SALÃO</span>
+              <h3 className="font-headline-lg text-headline-lg mb-4">SITE C/ AGENDAMENTO</h3>
               <p className="font-body-md text-body-md text-on-surface-variant">
-                Eleve o padrão do seu atendimento com uma experiência de agendamento impecável.
+                Acabe com a bagunça no WhatsApp. Seus clientes marcam horário direto no site 24h por dia.
               </p>
             </div>
           </div>
           
           {/* Padaria */}
-          <div className="group relative overflow-hidden bg-surface-bright aspect-[4/5] flex flex-col justify-end p-8 border border-outline">
+          <div className="group relative overflow-hidden bg-surface-bright aspect-[4/5] flex flex-col justify-end p-6 sm:p-8 border border-outline">
             <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500">
               <img 
                 className="w-full h-full object-cover grayscale mix-blend-overlay" 
@@ -53,16 +53,16 @@ export function Solutions() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
             </div>
             <div className="relative z-10 text-on-surface">
-              <span className="font-label-caps text-label-caps mb-4 block text-primary">PANIFICAÇÃO &amp; CAFÉ</span>
-              <h3 className="font-headline-lg text-headline-lg mb-4">CARDÁPIO DIGITAL ATIVO</h3>
+              <span className="font-label-caps text-label-caps mb-4 block text-primary">ALIMENTAÇÃO & DELIVERY</span>
+              <h3 className="font-headline-lg text-headline-lg mb-4">CATÁLOGO + WHATSAPP</h3>
               <p className="font-body-md text-body-md text-on-surface-variant">
-                Transforme o aroma dos seus produtos em desejo digital imediato e vendas recorrentes.
+                Mostre seus produtos e cardápio de forma irresistível e receba pedidos organizados no seu WhatsApp.
               </p>
             </div>
           </div>
           
           {/* Vestuario */}
-          <div className="group relative overflow-hidden bg-surface-bright aspect-[4/5] flex flex-col justify-end p-8 border border-outline">
+          <div className="group relative overflow-hidden bg-surface-bright aspect-[4/5] flex flex-col justify-end p-6 sm:p-8 border border-outline">
             <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500">
               <img 
                 className="w-full h-full object-cover grayscale mix-blend-overlay" 
@@ -72,10 +72,10 @@ export function Solutions() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
             </div>
             <div className="relative z-10 text-on-surface">
-              <span className="font-label-caps text-label-caps mb-4 block text-primary">BOUTIQUE &amp; MODA</span>
-              <h3 className="font-headline-lg text-headline-lg mb-4">VITRINE DE ALTO IMPACTO</h3>
+              <span className="font-label-caps text-label-caps mb-4 block text-primary">ASSISTÊNCIA & SERVIÇOS</span>
+              <h3 className="font-headline-lg text-headline-lg mb-4">SITE INSTITUCIONAL</h3>
               <p className="font-body-md text-body-md text-on-surface-variant">
-                Sua marca merece uma vitrine que transmita exclusividade e sofisticação em cada clique.
+                Passe confiança profissional. Destaque seus serviços, localização no mapa e facilite o contato.
               </p>
             </div>
           </div>
