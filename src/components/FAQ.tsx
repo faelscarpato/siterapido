@@ -1,72 +1,85 @@
 import React, { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    question: "O QUE EU PRECISO ENVIAR PARA TER MEU SITE?",
-    answer: "Apenas informações básicas do seu negócio: fotos (se tiver), serviços ou produtos que oferece, endereço, horário de funcionamento e seu número de WhatsApp. Nós cuidamos de toda a estrutura, textos persuasivos e design."
+    q: 'Quanto tempo demora para ficar pronto?',
+    a: 'O site fica pronto em at\u00e9 72 horas (3 dias \u00fateis) ap\u00f3s voc\u00ea nos enviar as informa\u00e7\u00f5es, fotos e textos.',
   },
   {
-    question: "EM QUANTO TEMPO MEU SITE FICA PRONTO?",
-    answer: "Trabalhamos com um prazo de entrega super rápido de 72 horas úteis após o recebimento das informações do seu negócio. Sem enrolação de agência."
+    q: 'O site fica no meu nome?',
+    a: 'Sim! O site \u00e9 100% seu. Ap\u00f3s o primeiro ano, voc\u00ea pode continuar conosco ou hospedar em outro lugar.',
   },
   {
-    question: "PRECISO PAGAR HOSPEDAGEM OU DOMÍNIO SEPARADO?",
-    answer: "Não! A hospedagem já está inclusa em todos os planos. O domínio personalizado (.com.br) está incluso gratuitamente nos planos Catálogo e Conversão."
+    q: 'Tem mensalidade?',
+    a: 'N\u00e3o! Voc\u00ea paga apenas uma vez. Hospedagem e dom\u00ednio inclu\u00eddos no primeiro ano. A partir do segundo ano, h\u00e1 apenas uma taxa anual de manuten\u00e7\u00e3o de servidor.',
   },
   {
-    question: "MEU SITE VAI APARECER NO GOOGLE?",
-    answer: "Sim! Entregamos o site 100% otimizado para os motores de busca (SEO Local), o que ajuda muito o seu negócio a ser encontrado por clientes da sua região quando pesquisarem no Google."
+    q: 'O site funciona bem no celular?',
+    a: 'Com certeza! Todos os sites s\u00e3o desenvolvidos priorizando a vers\u00e3o mobile, que \u00e9 onde a maioria dos clientes acessa.',
   },
   {
-    question: "COMO FUNCIONA O PAGAMENTO DA MENSALIDADE?",
-    answer: "O pagamento é feito via cartão de crédito ou PIX, de forma automática e recorrente, sem prender o limite do seu cartão."
-  }
+    q: 'O valor inclui o dom\u00ednio (.com.br)?',
+    a: 'Nos planos Profissional e Premium, o dom\u00ednio .com.br est\u00e1 incluso no primeiro ano. No plano B\u00e1sico, o site funciona em subdom\u00ednio.',
+  },
+  {
+    q: 'Posso editar o site depois?',
+    a: 'No plano Premium, voc\u00ea ter\u00e1 um painel simples para editar conte\u00fados. Nos outros planos, \u00e9 s\u00f3 nos mandar no WhatsApp e fazemos a altera\u00e7\u00e3o para voc\u00ea.',
+  },
 ];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-background border-t border-outline" id="faq">
-      <div className="mx-auto px-6 sm:px-10">
-        <div className="flex flex-col lg:flex-row gap-16">
-          <div className="lg:w-1/3">
-            <h2 className="font-display-lg text-display-lg-mobile text-4xl md:text-headline-xl mb-6 text-on-surface uppercase leading-tight">
-              PERGUNTAS<br /><span className="text-primary">FREQUENTES</span>
-            </h2>
-            <div className="w-24 h-1 bg-primary mb-6"></div>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[480px]">
-              Tudo o que você precisa saber antes de transformar a presença digital do seu negócio.
-            </p>
+    <section className="py-24" id="faq" style={{ background: '#F8F7FF' }}>
+      <div className="max-w-3xl mx-auto px-5 sm:px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="section-label inline-flex mb-4">
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#7C3AED', display: 'inline-block' }} />
+            D\u00favidas frequentes
           </div>
-          
-          <div className="lg:w-2/3 flex flex-col gap-4">
-            {faqs.map((faq, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <div 
-                  key={index} 
-                  className={`border ${isOpen ? 'border-primary' : 'border-outline'} bg-surface transition-colors cursor-pointer hover:border-primary`}
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                >
-                  <div className="p-6 flex items-center justify-between gap-4">
-                    <h3 className="font-headline-lg text-lg sm:text-xl text-on-surface uppercase pr-4">{faq.question}</h3>
-                    <div className={`shrink-0 w-8 h-8 flex items-center justify-center border ${isOpen ? 'border-primary text-primary' : 'border-outline text-on-surface'} transition-colors`}>
-                      {isOpen ? <Minus size={16} /> : <Plus size={16} />}
-                    </div>
-                  </div>
-                  <div 
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-                  >
-                    <div className="p-6 pt-0 font-body-md text-on-surface-variant">
-                      {faq.answer}
-                    </div>
-                  </div>
+          <h2 className="section-title mb-4">Perguntas Frequentes</h2>
+          <p className="section-subtitle mx-auto">
+            Tire suas d\u00favidas sobre como funciona o SiteR\u00e1pido.
+          </p>
+        </div>
+
+        {/* FAQ Accordion */}
+        <div className="space-y-3">
+          {faqs.map((faq, i) => (
+            <div
+              key={i}
+              className="card overflow-hidden"
+              style={{ borderColor: open === i ? '#7C3AED' : '#E5E7EB' }}
+            >
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full px-6 py-5 flex items-center justify-between text-left"
+                style={{ background: open === i ? '#F8F7FF' : 'white' }}
+              >
+                <span className="font-bold text-base" style={{ color: '#0F0A1E' }}>
+                  {faq.q}
+                </span>
+                <ChevronDown
+                  size={20}
+                  style={{
+                    color: '#7C3AED',
+                    transform: open === i ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.2s',
+                  }}
+                />
+              </button>
+              {open === i && (
+                <div className="px-6 pb-5 pt-2">
+                  <p className="text-sm" style={{ color: '#6B7280', lineHeight: 1.7 }}>
+                    {faq.a}
+                  </p>
                 </div>
-              );
-            })}
-          </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>
