@@ -8,6 +8,7 @@ import Landing from './pages/Landing';
 import Barbearia from './pages/demo/Barbearia';
 import Padaria from './pages/demo/Padaria';
 import Vestuario from './pages/demo/Vestuario';
+import Restaurante from './pages/demo/Restaurante';
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/demo/barbearia" component={Barbearia} />
       <Route path="/demo/padaria" component={Padaria} />
       <Route path="/demo/vestuario" component={Vestuario} />
+            <Route path="/demo/restaurante" component={Restaurante} />
       <Route component={NotFound} />
     </Switch>
   );
