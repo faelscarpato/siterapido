@@ -1,52 +1,86 @@
 import React from 'react';
+import { LayoutGrid, ImagePlus, Rocket } from 'lucide-react';
+
+const steps = [
+  {
+    num: 1,
+    icon: LayoutGrid,
+    title: 'Escolha o modelo',
+    desc: 'Navegue pelos nossos modelos de nicho e escolha o que mais combina com o seu negócio.',
+  },
+  {
+    num: 2,
+    icon: ImagePlus,
+    title: 'Envie seus dados',
+    desc: 'Mande suas fotos, textos e contatos direto pelo WhatsApp. Sem formulários complicados.',
+  },
+  {
+    num: 3,
+    icon: Rocket,
+    title: 'Site no ar',
+    desc: 'Em até 72 horas, seu site estará pronto e publicado. Comece a receber visitas imediatamente.',
+  },
+];
 
 export function HowItWorks() {
   return (
-    <section className="py-24 overflow-hidden bg-background border-t border-outline" id="como-funciona">
-      <div className="mx-auto px-6 sm:px-10">
-        <div className="mb-20">
-          <h2 className="font-display-lg text-display-lg-mobile text-4xl md:text-headline-xl mb-6 text-on-surface uppercase leading-tight">
-            DO ZERO AO SITE PRONTO <span className="text-primary">EM 3 PASSOS</span>
+    <section className="py-24" id="como-funciona" style={{ background: '#F8F7FF' }}>
+      <div className="max-w-5xl mx-auto px-5 sm:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="section-label inline-flex mb-4">
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#7C3AED', display: 'inline-block' }} />
+            Processo simples e rápido
+          </div>
+          <h2 className="section-title mb-4">
+            Como funciona? <span className="highlight">3 passos</span> e está pronto.
           </h2>
-          <div className="w-24 h-1 bg-primary mb-6"></div>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[480px]">
-            Um processo direto e sem dor de cabeça, pensado para quem não tem tempo a perder.
+          <p className="section-subtitle mx-auto">
+            Não precisa entender de tecnologia. Nós cuidamos de tudo para você.
           </p>
         </div>
-        
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-16">
-          {/* Connector Line Desktop */}
-          <div className="hidden md:block absolute top-6 left-1/4 right-1/4 h-px bg-outline"></div>
-          
-          <div className="flex flex-col group">
-            <div className="w-12 h-12 bg-surface flex items-center justify-center mb-8 border border-outline group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 relative z-10 text-on-surface">
-              <span className="font-label-caps text-label-caps font-bold">01</span>
-            </div>
-            <h3 className="font-headline-lg text-headline-lg-mobile mb-4 text-on-surface uppercase">ESCOLHA O PACOTE</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">
-              Você escolhe o modelo ideal para o seu segmento e o plano que cabe no seu bolso.
-            </p>
-          </div>
-          
-          <div className="flex flex-col group">
-            <div className="w-12 h-12 bg-surface flex items-center justify-center mb-8 border border-outline group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 relative z-10 text-on-surface">
-              <span className="font-label-caps text-label-caps font-bold">02</span>
-            </div>
-            <h3 className="font-headline-lg text-headline-lg-mobile mb-4 text-on-surface uppercase">ENVIE SUAS INFOS</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">
-              Mande suas fotos, serviços e horários. Nossa equipe cuida dos textos profissionais e da montagem.
-            </p>
-          </div>
-          
-          <div className="flex flex-col group">
-            <div className="w-12 h-12 bg-surface flex items-center justify-center mb-8 border border-outline group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 relative z-10 text-on-surface">
-              <span className="font-label-caps text-label-caps font-bold">03</span>
-            </div>
-            <h3 className="font-headline-lg text-headline-lg-mobile mb-4 text-on-surface uppercase">RECEBA EM 72H</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">
-              Seu site publicado, otimizado para celular e pronto para receber clientes do Google.
-            </p>
-          </div>
+
+        {/* Steps */}
+        <div className="grid md:grid-cols-3 gap-8 relative">
+          {steps.map((s, i) => (
+            <React.Fragment key={s.num}>
+              <div className="text-center relative">
+                {/* Step number circle */}
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+                  style={{
+                    background: 'linear-gradient(135deg, #7C3AED, #6D28D9)',
+                    boxShadow: '0 8px 24px rgba(124,58,237,0.25)',
+                  }}
+                >
+                  <span className="text-white font-extrabold text-xl">{s.num}</span>
+                </div>
+
+                {/* Icon */}
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4"
+                  style={{ background: '#F3F0FF' }}
+                >
+                  <s.icon size={24} color="#7C3AED" />
+                </div>
+
+                {/* Text */}
+                <h3 className="font-bold text-lg mb-2" style={{ color: '#0F0A1E' }}>
+                  {s.title}
+                </h3>
+                <p className="text-sm" style={{ color: '#6B7280' }}>
+                  {s.desc}
+                </p>
+              </div>
+
+              {/* Connector line (between steps, not after last) */}
+              {i < steps.length - 1 && (
+                <div className="hidden md:flex items-center justify-center absolute" style={{ left: `${(i + 1) * 33.33 - 16.66}%`, top: 28, width: '16.66%' }}>
+                  <div className="step-connector" />
+                </div>
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </section>
